@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "James Han's Birthday Party - September 27th, 2025",
-  description: "You're invited to James Han's birthday celebration! Saturday, September 27th, 2025 from 5:00 PM - 9:00 PM at 57 St Joseph Street. RSVP now!",
+  title: "James Han's Birthday Party 🎂",
+  description: "Sep 27 • 5-9pm • 57 St Joseph St",
   keywords: ["birthday party", "invitation", "James Han", "September 2025", "RSVP"],
   authors: [{ name: "James Han" }],
   openGraph: {
     title: "James Han's Birthday Party 🎂",
-    description: "You're invited! Saturday, Sep 27th, 2025 • 5:00-9:00 PM • 57 St Joseph Street",
+    description: "Sep 27 • 5-9pm • 57 St Joseph St",
     type: "website",
     locale: "en_US",
     siteName: "Birthday Invitation",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "James Han's Birthday Party 🎂",
-    description: "You're invited! Saturday, Sep 27th, 2025 • 5:00-9:00 PM • 57 St Joseph Street",
+    description: "Sep 27 • 5-9pm • 57 St Joseph St",
   },
   robots: {
     index: true,
