@@ -43,6 +43,7 @@ In your Supabase dashboard, go to **SQL Editor** and run this SQL:
 CREATE TABLE rsvps (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
+  phone TEXT NOT NULL,
   bringing TEXT NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
@@ -70,13 +71,14 @@ Open [http://localhost:3000](http://localhost:3000) to see your birthday invitat
 Edit the party details in `src/app/page.tsx`:
 
 ```tsx
-<h2 className="text-2xl md:text-3xl font-medium text-slate-800 mb-2">
-  Sarah's Birthday Celebration  {/* Change the name here */}
+<h2 className="text-xl md:text-2xl font-medium text-slate-800 mb-3">
+  James Han&apos;s Birthday Celebration  {/* Change the name here */}
 </h2>
-<div className="space-y-2 text-slate-600">
-  <p className="text-lg">Saturday, October 28th, 2024</p>  {/* Change date */}
-  <p className="text-lg">7:00 PM - Late</p>                {/* Change time */}
-  <p className="text-lg">123 Celebration Lane, San Francisco</p>  {/* Change location */}
+<div className="space-y-1 text-slate-600 text-sm">
+  <p>Saturday, September 27th, 2025</p>  {/* Change date */}
+  <p>5:00 PM</p>                         {/* Change time */}
+  <p>57 St Joseph Street</p>             {/* Change location */}
+  <p className="text-slate-500 text-xs">Meet in the lobby</p>  {/* Additional info */}
 </div>
 ```
 

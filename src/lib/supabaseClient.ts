@@ -9,6 +9,7 @@ import { supabaseConfig } from './config'
      CREATE TABLE rsvps (
        id SERIAL PRIMARY KEY,
        name TEXT NOT NULL,
+       phone TEXT NOT NULL,
        bringing TEXT NOT NULL,
        created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
      );
@@ -27,6 +28,7 @@ export const supabase = createClient(supabaseConfig.url, supabaseConfig.anonKey)
 export interface RSVP {
   id: number
   name: string
+  phone: string
   bringing: string
   created_at: string
 }

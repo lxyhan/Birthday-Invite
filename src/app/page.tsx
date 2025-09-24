@@ -7,6 +7,7 @@ import { supabaseConfig } from '@/lib/config'
 export default function BirthdayInvitation() {
   const [rsvps, setRsvps] = useState<RSVP[]>([])
   const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
   const [bringing, setBringing] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
@@ -66,19 +67,19 @@ export default function BirthdayInvitation() {
     e.preventDefault()
     setError('')
     
-    if (!name.trim() || !bringing.trim()) {
-      setError('Please fill in both fields')
+    if (!name.trim() || !phone.trim() || !bringing.trim()) {
+      setError('Please fill in all fields')
       return
     }
 
     setIsSubmitting(true)
 
     try {
-      console.log('📝 Submitting RSVP:', { name: name.trim(), bringing: bringing.trim() })
+      console.log('📝 Submitting RSVP:', { name: name.trim(), phone: phone.trim(), bringing: bringing.trim() })
       
       const { data, error } = await supabase
         .from('rsvps')
-        .insert([{ name: name.trim(), bringing: bringing.trim() }])
+        .insert([{ name: name.trim(), phone: phone.trim(), bringing: bringing.trim() }])
         .select()
 
       console.log('📤 Insert response:', { data, error })
@@ -92,6 +93,7 @@ export default function BirthdayInvitation() {
       
       // Success - clear form and show success message
       setName('')
+      setPhone('')
       setBringing('')
       setShowSuccess(true)
       setTimeout(() => setShowSuccess(false), 3000)
@@ -121,8 +123,8 @@ export default function BirthdayInvitation() {
               James Han&apos;s Birthday Celebration
             </h2>
             <div className="space-y-1 text-slate-600 text-sm">
-              <p>Friday, September 27th, 2025</p>
-              <p>5:00 PM</p>
+              <p>Saturday, September 27th, 2025</p>
+              <p>5:00 PM - 9:00 PM</p>
               <p>57 St Joseph Street</p>
               <p className="text-slate-500 text-xs">Meet in the lobby</p>
             </div>
@@ -158,6 +160,21 @@ export default function BirthdayInvitation() {
                   onChange={(e) => setName(e.target.value)}
                   className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent transition-all duration-200 bg-white"
                   placeholder="Enter your full name"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-xs font-medium text-slate-700 mb-1">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent transition-all duration-200 bg-white"
+                  placeholder="(555) 123-4567"
                   required
                 />
               </div>
@@ -212,6 +229,7 @@ export default function BirthdayInvitation() {
                     <div className="flex items-start justify-between">
                       <div>
                         <h4 className="font-medium text-slate-900 text-sm">{rsvp.name}</h4>
+                        <p className="text-slate-500 text-xs">{rsvp.phone}</p>
                         <p className="text-slate-600 text-xs mt-0.5">Bringing: {rsvp.bringing}</p>
                       </div>
                       <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-1.5"></div>
