@@ -21,7 +21,7 @@ export default function BirthdayInvitation() {
   const testConnection = async () => {
     console.log('🧪 Testing Supabase connection...')
     try {
-      const { data, error } = await supabase.from('rsvps').select('count', { count: 'exact', head: true })
+      const { error } = await supabase.from('rsvps').select('count', { count: 'exact', head: true })
       if (error) {
         console.error('❌ Connection test failed:', error)
         if (error.message.includes('relation "rsvps" does not exist')) {
@@ -114,11 +114,11 @@ export default function BirthdayInvitation() {
         <div className="text-center mb-10">
           <div className="inline-block p-6 bg-white rounded-2xl shadow-sm border border-slate-200/50 backdrop-blur-sm">
             <h1 className="text-3xl md:text-4xl font-light text-slate-900 mb-3 tracking-tight">
-              You're Invited
+              You&apos;re Invited
             </h1>
             <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mx-auto mb-4"></div>
             <h2 className="text-xl md:text-2xl font-medium text-slate-800 mb-3">
-              James Han's Birthday Celebration
+              James Han&apos;s Birthday Celebration
             </h2>
             <div className="space-y-1 text-slate-600 text-sm">
               <p>Friday, September 27th, 2025</p>
@@ -190,7 +190,7 @@ export default function BirthdayInvitation() {
           {/* Guest List */}
           <div className="bg-white rounded-xl shadow-sm border border-slate-200/50 p-6">
             <h3 className="text-lg font-medium text-slate-900 mb-4">
-              Who's Coming ({rsvps.length})
+              Who&apos;s Coming ({rsvps.length})
             </h3>
             
             {rsvps.length === 0 ? (
@@ -225,7 +225,7 @@ export default function BirthdayInvitation() {
 
         {/* Footer */}
         <div className="text-center mt-10 text-slate-500">
-          <p className="text-sm">Can't wait to celebrate with you! 🎂</p>
+          <p className="text-sm">Can&apos;t wait to celebrate with you! 🎂</p>
         </div>
       </div>
     </div>
