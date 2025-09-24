@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { supabase, type RSVP } from '@/lib/supabaseClient'
 import { supabaseConfig } from '@/lib/config'
+import Image from 'next/image'
 
 export default function BirthdayInvitation() {
   const [rsvps, setRsvps] = useState<RSVP[]>([])
@@ -113,19 +114,39 @@ export default function BirthdayInvitation() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
       <div className="container mx-auto px-4 py-8 max-w-3xl">
         {/* Header Section */}
-        <div className="text-center mb-10">
-          <div className="inline-block p-6 bg-white rounded-2xl shadow-sm border border-slate-200/50 backdrop-blur-sm">
+        <div className="text-center mb-10 relative">
+          {/* Fun decorative images */}
+          <div className="absolute -top-4 -left-4 w-16 h-16 opacity-80 animate-bounce">
+            <Image
+              src="/pokemon.png"
+              alt="Pokemon decoration"
+              width={64}
+              height={64}
+              className="rounded-lg"
+            />
+          </div>
+          <div className="absolute -top-4 -right-4 w-16 h-16 opacity-80 animate-bounce" style={{animationDelay: '0.5s'}}>
+            <Image
+              src="/overcooked.png"
+              alt="Overcooked decoration"
+              width={64}
+              height={64}
+              className="rounded-lg"
+            />
+          </div>
+          
+          <div className="inline-block p-6 bg-white rounded-2xl shadow-sm border border-slate-200/50 backdrop-blur-sm relative">
             <h1 className="text-3xl md:text-4xl font-light text-slate-900 mb-3 tracking-tight">
-              You&apos;re Invited
+              You&apos;re Invited 🎉
             </h1>
             <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mx-auto mb-4"></div>
             <h2 className="text-xl md:text-2xl font-medium text-slate-800 mb-3">
-              James Han&apos;s Birthday Celebration
+              James Han&apos;s Birthday Celebration 🎂
             </h2>
             <div className="space-y-1 text-slate-600 text-sm">
-              <p>Saturday, September 27th, 2025</p>
-              <p>5:00 PM - 9:00 PM</p>
-              <p>57 St Joseph Street</p>
+              <p>Saturday, September 27th, 2025 📅</p>
+              <p>5:00 PM - 9:00 PM ⏰</p>
+              <p>57 St Joseph Street 📍</p>
               <p className="text-slate-500 text-xs">Meet in the lobby</p>
             </div>
           </div>
@@ -137,8 +158,18 @@ export default function BirthdayInvitation() {
             <h3 className="text-lg font-medium text-slate-900 mb-4">Confirm Your Attendance</h3>
             
             {showSuccess && (
-              <div className="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg">
-                <p className="text-emerald-800 font-medium text-sm">Thank you for your RSVP! 🎉</p>
+              <div className="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg relative overflow-hidden">
+                <div className="absolute top-1 right-1 w-8 h-8 opacity-30">
+                  <Image
+                    src="/pokemon.png"
+                    alt="Success decoration"
+                    width={32}
+                    height={32}
+                    className="rounded"
+                  />
+                </div>
+                <p className="text-emerald-800 font-medium text-sm">Thank you for your RSVP! 🎉✨</p>
+                <p className="text-emerald-600 text-xs mt-1">See you at the party! 🎮🎂</p>
               </div>
             )}
 
@@ -242,8 +273,29 @@ export default function BirthdayInvitation() {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-10 text-slate-500">
-          <p className="text-sm">Can&apos;t wait to celebrate with you! 🎂</p>
+        <div className="text-center mt-10 text-slate-500 relative">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="w-12 h-12 opacity-60">
+              <Image
+                src="/pokemon.png"
+                alt="Pokemon"
+                width={48}
+                height={48}
+                className="rounded-lg"
+              />
+            </div>
+            <p className="text-sm">Can&apos;t wait to celebrate with you! 🎂✨</p>
+            <div className="w-12 h-12 opacity-60">
+              <Image
+                src="/overcooked.png"
+                alt="Overcooked"
+                width={48}
+                height={48}
+                className="rounded-lg"
+              />
+            </div>
+          </div>
+          <p className="text-xs text-slate-400">Games, food, and fun await! 🎮🍕</p>
         </div>
       </div>
     </div>
