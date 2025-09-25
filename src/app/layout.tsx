@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Birthday Invitation",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "James Han's Birthday Party 🎂",
     description: "Sep 27 • 5-9pm • 57 St Joseph St",
   },
