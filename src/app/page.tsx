@@ -68,8 +68,8 @@ export default function BirthdayInvitation() {
     e.preventDefault()
     setError('')
     
-    if (!name.trim() || !phone.trim() || !bringing.trim()) {
-      setError('Please fill in all fields')
+    if (!name.trim() || !phone.trim()) {
+      setError('Please fill in your name and phone number')
       return
     }
 
@@ -148,6 +148,11 @@ export default function BirthdayInvitation() {
               <p>5:00 PM - 9:00 PM ⏰</p>
               <p>57 St Joseph Street 📍</p>
               <p className="text-slate-500 text-xs">Meet in the lobby</p>
+              <div className="mt-3 pt-2 border-t border-slate-200">
+                <p className="text-slate-500 text-xs italic">
+                  Feel free to bring a gift 🎁 (or food if you prefer!)
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -212,7 +217,7 @@ export default function BirthdayInvitation() {
 
               <div>
                 <label htmlFor="bringing" className="block text-xs font-medium text-slate-700 mb-1">
-                  What are you bringing?
+                  What are you bringing? (optional)
                 </label>
                 <input
                   type="text"
@@ -220,8 +225,7 @@ export default function BirthdayInvitation() {
                   value={bringing}
                   onChange={(e) => setBringing(e.target.value)}
                   className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent transition-all duration-200 bg-white"
-                  placeholder="Main dish, wine, dessert..."
-                  required
+                  placeholder="Gift, food, or just your awesome presence! 🎁"
                 />
               </div>
 
